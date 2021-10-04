@@ -4,8 +4,11 @@ namespace HelloWord
 {
     class Program
     {
+        const int c_a = 155;
+        const int c_b = 255;
         static void Main(string[] args)
         {
+        
             //Console.WriteLine("Hello World! - Ahoj, tady Václav.");
             //AddAndPrint(5, 10000);
             //Pozdrav("Karle");
@@ -26,20 +29,17 @@ namespace HelloWord
 
         static int Vetsi(int a, int b)
         {
-            Console.WriteLine($"Přijato a = {a}, b = {b}");
+            if (a == c_a || a == c_b)
+            {
+                if (a > b) return b;
+                else return a;
+            }
             if (a > b)
             {
-                //Console.WriteLine($"Větší číslo je a. a = {a}.");
                 return a;
             }
-            if (a < b)
-            {
-                //Console.WriteLine($"Větší číslo je b. b = {b}.");
-                return b;
-            }
-
-            //Console.WriteLine($"Obě čísla mají stejnou velikost. a = b = {a}.");
-            return a;
+            return b;
+            
             
         }
 
