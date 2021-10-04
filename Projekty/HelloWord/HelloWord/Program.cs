@@ -19,7 +19,12 @@ namespace HelloWord
                 Console.WriteLine($"Není koho pozdravit");
                 return;
             }
-            Console.WriteLine($"Zdravím  {input}.");
+            if (input == "Bob" || input == "Alice")
+            {
+                Console.WriteLine("Vítej zpět!");
+                return;
+            }
+            Console.WriteLine($"Vítej {input}.");
 
 
 
