@@ -15,23 +15,24 @@ namespace HelloWord
             int pom = a;
             a = b;
             b = pom;
+            decimal k = 5;
+            var kkde = 5M;
 
-            Console.WriteLine($"a = {a}, b = {b}");
+            //Console.WriteLine($"a = {a}, b = {b}");
+            Vetsi(1, 2);
         }
 
-        static void Pozdrav( string jmeno)
+        static void Vetsi(int a, int b)
         {
-            Console.WriteLine($"Ahoj {jmeno}.");
-            var x = 480 + 300.5 - 10f;
-            var g = "gg" + 300;
-            //unsi int kk = 1;
+            Console.WriteLine($"Přijato a = {a}, b = {b}");
+            if (a > b)
+                Console.WriteLine($"Větší číslo je a. a = {a}.");
+            if (a < b)
+                Console.WriteLine($"Větší číslo je b. b = {b}.");
+            if(a==b)
+                Console.WriteLine($"Obě čísla mají stejnou velikost. a = b = {a}.");
         }
 
-        static int AddAndPrint(int a , int b)
-        {
-            Console.WriteLine(a + " + " + b + " = " + (a + b));
-            return a + b;
 
-        }
     }
 }
