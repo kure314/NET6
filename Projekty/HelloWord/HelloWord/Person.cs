@@ -21,7 +21,7 @@ namespace HelloWorld
 
         public override string ToString()
         {
-            return GetFullName();
+            return $"Jméno: {FirstName}, příjmení: {LastName}, věk: {Age}";
         }
         public Person(string firstName, string lastName, int age)
         {

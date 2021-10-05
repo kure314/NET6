@@ -16,6 +16,9 @@ namespace HelloWorld
             var p3 = new Person("Jan", "Novák", 1);
             var p4 = new Person("Marie", "Dolejší", 1);
             people.Add(p1);
+            people.Add(p2);
+            people.Add(p3);
+            people.Add(p4);
 
             foreach (Person item in people)
             {
