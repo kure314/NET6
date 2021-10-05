@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HelloWorld
 {
@@ -9,6 +10,17 @@ namespace HelloWorld
         {
             Point Bod0001 = new Point(1, 2);
             Console.WriteLine($"Obsah = {Bod0001.Obsah()}");
+            List<Person> people = new List<Person>();
+            var p1 = new Person("Adam", "Smith", 1);
+            var p2 = new Person("Jane", "Doe", 1);
+            var p3 = new Person("Jan", "Novák", 1);
+            var p4 = new Person("Marie", "Dolejší", 1);
+            people.Add(p1);
+
+            foreach (Person item in people)
+            {
+                Console.WriteLine(item);
+            }
 
             //// ulozeni tuplu to Tuple typu
             //var tupleResult = MyTryParse("150.0");
