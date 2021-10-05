@@ -7,7 +7,7 @@ namespace HelloWorld
 
         static void Main(string[] args)
         {
-            Person p1 = new Person("Václav", "Kuře", 1);
+            Point Bod0001 = new Point(1, 2);
 
 
             
