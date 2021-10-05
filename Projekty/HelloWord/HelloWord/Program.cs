@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace HelloWorld
 {
@@ -20,10 +21,24 @@ namespace HelloWorld
             people.Add(p3);
             people.Add(p4);
 
+            string fileName = "people.txt";
             foreach (Person item in people)
             {
-                Console.WriteLine(item);
+                File.AppendAllText(fileName, item.VypisDoSouboru()+Environment.NewLine);
             }
+
+            string[] radek = File.ReadAllLines(fileName);
+
+            foreach (string item in radek)
+            {
+                int index = item.IndexOf(';');
+                string jmeno = item.Substring(0, index-1);
+                    
+            }
+            
+            
+
+            
 
             //// ulozeni tuplu to Tuple typu
             //var tupleResult = MyTryParse("150.0");

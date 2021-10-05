@@ -18,7 +18,10 @@ namespace HelloWorld
         {
             return FirstName + " " + LastName;
         }
-
+        public string VypisDoSouboru()
+        {
+            return $"{FirstName};{LastName};{Age}";
+        }
         public override string ToString()
         {
             return $"Jméno: {FirstName}, příjmení: {LastName}, věk: {Age}";
