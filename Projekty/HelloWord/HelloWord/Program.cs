@@ -7,9 +7,31 @@ namespace HelloWord
 
         static void Main(string[] args)
         {
-            //Generation();
-           novaFunkce();
+            bool dotazovatSe = true;
+            int cisloUzivatele = 0;
+            Console.WriteLine($"Zadejte číslo:");
+            do
+            {
 
+                string vstup = Console.ReadLine();
+                if (!int.TryParse(vstup, out cisloUzivatele))
+                {
+                    Console.WriteLine($"Hodnota {vstup} nelze převést na číslo. Zkuste znova:");
+                    continue;
+                }
+            }
+                Soucet(cisloUzivatele);
+
+        }
+
+        private static void Soucet(int cislo)
+        {
+            int vysledek = 0;
+            for (int i = 0; i =< cislo; i++)
+            {
+                vysledek = vysledek + i;
+            }
+            Console.WriteLine($"Součet čísla {cislo} je {vysledek}.");
         }
 
         private static void novaFunkce()
