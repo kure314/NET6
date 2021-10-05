@@ -7,41 +7,49 @@ namespace HelloWord
 
         static void Main(string[] args)
         {
+            Generation();
 
-            int a = 23;
-            double d = 444.5698;
-
-            //Console.WriteLine($"a = {a}, (int)d = {(int)d}");
-            //Console.WriteLine($"a = {a}, Convert.ToInt32(d) = {Convert.ToInt32(d)}");
-            //Convert.ToInt32(2);
-
-            PrevodNaCelsius();
 
         }
-
-        private static void PrevodNaCelsius()
+        public static void Generation()
         {
-            Console.WriteLine($"Vložte hodnotu ve °F:");
-            double farn = 0;
+            Console.WriteLine($"Vložte rok narození:");
+            int rok = 0;
             bool dotazovatSe = true;
-            while (dotazovatSe)
+            do
             {
                 string vstup = Console.ReadLine();
-                
-                if(!double.TryParse(vstup, out farn))
+                if (!int.TryParse(vstup, out rok))
                 {
-                    Console.WriteLine($"Hodnota {vstup} nelze převést. Zkuste znova:");
+                    Console.WriteLine($"Hodnota {vstup} nelze převést na rok. Zkuste znova:");
                     continue;
                 }
                 dotazovatSe = false;
-            }
+            } while (dotazovatSe);
 
-            Console.WriteLine($"Výsledek: {farn} °F = {(farn-32d)/1.8d} °C");
+      
+            if(rok<1946)
+            {
+                Console.WriteLine($"{rok} Nelze určit");
+                return;
+            }
+            if(rok>=1946 && rok<=1964)
+                Console.WriteLine($"{rok} je generace Baby Boomerss");
+            if (rok >= 1965 && rok <= 1980)
+                Console.WriteLine($"{rok} je generace Generation X");
+            if (rok >= 1981 && rok <= 1996)
+                Console.WriteLine($"{rok} je generace Millenials");
+            if (rok >= 1997 && rok <= 2012)
+                Console.WriteLine($"{rok} je generace Generation Z");
+            if (rok >= 2013)
+                Console.WriteLine($"{rok} je generace Generation Alpha");
 
 
         }
 
-   
+
+
+
 
 
 
