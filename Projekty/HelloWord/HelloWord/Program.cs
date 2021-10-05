@@ -7,10 +7,54 @@ namespace HelloWord
 
         static void Main(string[] args)
         {
-            Generation();
-
+            //Generation();
+           novaFunkce();
 
         }
+
+        private static void novaFunkce()
+        {
+            bool dotazovatSe = true;
+            int cisloUzivatele = 0;
+            Console.WriteLine($"Zadejte číslo:");
+            do
+            {
+
+                string vstup = Console.ReadLine();
+                if (!int.TryParse(vstup, out cisloUzivatele))
+                {
+                    Console.WriteLine($"Hodnota {vstup} nelze převést na číslo. Zkuste znova:");
+                    continue;
+                }
+                Console.WriteLine($"Zadáno: {cisloUzivatele}");
+                if (cisloUzivatele%2==0)
+                    dotazovatSe = false;
+            } while (dotazovatSe);
+        }
+
+        private static string urciDenTydne(int poradiDne)
+        {
+            switch (poradiDne)
+            {
+                case 1:
+                    return "Pondělí";
+                case 2:
+                    return "Úterý";
+                case 3:
+                    return "Středa";
+                case 4:
+                    return "Čtvrtek";
+                case 5:
+                    return "Pátek";
+                case 6:
+                   
+                case 7:
+                    return "Víkend";
+                default:
+                    return $"Pořadí s číslem {poradiDne} není pořadí dne v týdnu.";
+            }
+        }
+
         public static void Generation()
         {
             Console.WriteLine($"Vložte rok narození:");
