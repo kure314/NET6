@@ -8,10 +8,23 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             Point Bod0001 = new Point(1, 2);
+            Console.WriteLine($"Obsah = {Bod0001.Obsah()}");
+
+            //// ulozeni tuplu to Tuple typu
+            //var tupleResult = MyTryParse("150.0");
+            //succ = tupleResult.Item1;
+            //val = tupleResult.Item2;
+
+            //// ulozeni tuplu to Tuple typu - pojmenovane itemy
+            //tupleResult = MyTryParse("150.0");
+            //succ = tupleResult.success;
+            //val = tupleResult.value;
+
+            //// rozlozeni tuplu primo do promennych
+            //(succ, val) = MyTryParse("150.0");
 
 
-            
-               
+
 
         }
         private static int ZiskejOdUzivateleCislo()

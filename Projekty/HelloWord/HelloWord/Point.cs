@@ -19,5 +19,9 @@ namespace HelloWorld
             return $"[{X},{Y}]";
         }
 
+        public int Obsah()
+        {
+            return Math.Abs(X * Y);
+        }
     }
 }
