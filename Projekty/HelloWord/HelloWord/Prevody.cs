@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HelloWord
+namespace HelloWorld
 {
     class Prevody
     {

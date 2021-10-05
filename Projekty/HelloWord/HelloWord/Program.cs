@@ -1,11 +1,20 @@
 ﻿using System;
 
-namespace HelloWord
+namespace HelloWorld
 {
     class Program
     {
 
         static void Main(string[] args)
+        {
+            Person p1 = new Person("Václav", "Kuře", 1);
+
+
+            
+               
+
+        }
+        private static int ZiskejOdUzivateleCislo()
         {
             bool dotazovatSe = true;
             int cisloUzivatele = 0;
@@ -19,19 +28,35 @@ namespace HelloWord
                     Console.WriteLine($"Hodnota {vstup} nelze převést na číslo. Zkuste znova:");
                     continue;
                 }
+                dotazovatSe = false;
             }
-                Soucet(cisloUzivatele);
-
+            while (dotazovatSe);
+            return cisloUzivatele;
         }
+        private static string ZiskejOdUzivateleText()
+        {
+            bool dotazovatSe = true;
+            string textUzivatele = "";
+            Console.WriteLine($"Zadejte číslo:");
+            do
+            {
+
+                textUzivatele = Console.ReadLine();
+                if (textUzivatele==null || textUzivatele.Length<1)
+                {
+                    Console.WriteLine($"Nic rozumného nezadáno. Zkuste znova:");
+                    continue;
+                }
+                dotazovatSe = false;
+            }
+            while (dotazovatSe);
+            return textUzivatele;
+        }
+
 
         private static void Soucet(int cislo)
         {
-            int vysledek = 0;
-            for (int i = 0; i =< cislo; i++)
-            {
-                vysledek = vysledek + i;
-            }
-            Console.WriteLine($"Součet čísla {cislo} je {vysledek}.");
+           
         }
 
         private static void novaFunkce()
