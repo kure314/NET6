@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Dataset;
+using Dataset.Model;
 
 namespace HelloWorld
 {
@@ -9,16 +11,65 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            //System.Data.DataTable tabulka = new System.Data.DataTable();
-            //tabulka.Columns.Add("_id", typeof(int));
-            //tabulka.Columns.Add("_jmeno", typeof(string));
+            List<Client> clients = Data.LoadFromXML();
 
-            //tabulka.Rows.Add(1, "Karel");
+            Console.WriteLine($"Počet načtených klientů: {clients.Count()}");
 
-            //foreach (System.Data.DataRow item in tabulka.Rows)
+            var result0 = clients.Select(c => c.FirstName); // vrátí pole stringů s FirstName
+
+            
+
+            var result2 = clients.GroupBy(c => c.HomeAddress.City);
+
+            // select
+            //var result = clients
+            //                .Where(c => c.Age() > 50)
+            //                .Select(c => new { c.FirstName, c.LastName } );
+
+            //select anonymous type
+            //var result = clients.Select(client => client.FirstName);
+
+            //group by
+            var result = clients.GroupBy(client => client.HomeAddress.City);
+
+            ////vypis vsech
+            foreach (var item in result)
+            {
+                Console.WriteLine($"město: {item.Key} - počet lidí: {item.Count()}");
+            }
+
+            Client nejstarsi = clients.OrderByDescending(c => c.Age()).First();
+
+            Console.WriteLine($"Nejstarší klient: {nejstarsi.FirstName} {nejstarsi.LastName}, věk: {nejstarsi.Age()}");
+
+            Client nejmladsi = clients.OrderBy(c => c.Age()).First();
+
+            Console.WriteLine($"Nejmladší klient: {nejmladsi.FirstName} {nejmladsi.LastName}, věk: {nejmladsi.Age()}");
+
+
+
+            //////vypis vsech
+            //foreach (var item in result)
             //{
-            //    Console.WriteLine($"Jméno: {item[1]}");
+            //    Console.WriteLine(item);
             //}
+
+
+
+
+
+
+        }
+        static void Main2(string[] args)
+        {
+            System.Data.DataTable dataTable = VytvoritTabulku();
+
+            foreach (System.Data.DataRow item in dataTable.Rows)
+            {
+                Console.WriteLine($"id: {item[0]}, jméno: {item[1]}");
+            }
+
+            //dataTable.Rows.fi
 
 
             int[] numbers = { -2079, -498, 2920, -1856, 332, -2549, -674, -120, -992, 2782, 320, -524, 135, 952, 1868, 2509, -230, -138, -904, -480 };
@@ -64,7 +115,18 @@ namespace HelloWorld
 
 
 
+        public static System.Data.DataTable VytvoritTabulku()
+        {
+            System.Data.DataTable tabulka = new System.Data.DataTable();
+            tabulka.Columns.Add("_id", typeof(int));
+            tabulka.Columns.Add("_jmeno", typeof(string));
 
+            tabulka.Rows.Add(1, "Karel");
+            tabulka.Rows.Add(2, "Marek");
+            tabulka.Rows.Add(3, "Křemílek");
+            tabulka.Rows.Add(4, "Vochomůrka");
+            return tabulka;
+        }
 
 
 
