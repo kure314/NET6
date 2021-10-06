@@ -9,28 +9,43 @@ namespace HelloWorld
     class Person
     {
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
+   
+        public DateTime DateOfBird { get; set; }
+        
+        public Address HomeAdress { get; set; } 
 
-        public int Age { get; set; }
-
-        public string GetFullName()
+        public Person()
         {
-            return FirstName + " " + LastName;
+            HomeAdress = new Address();
+            
+            
         }
+
+        public Person(string firstName, string lastName):this()
+        {
+            
+            FirstName = firstName;
+            LastName = lastName;
+          
+        }
+
+
         public string VypisDoSouboru()
         {
-            return $"{FirstName};{LastName};{Age}";
+            return $"{FirstName};{LastName};{Age()}";
         }
         public override string ToString()
         {
-            return $"Jméno: {FirstName}, příjmení: {LastName}, věk: {Age}";
+            return $"Jméno: {FirstName}, příjmení: {LastName}, věk: {Age()}, Adresa: {HomeAdress.Street}, {HomeAdress.City}";
         }
-        public Person(string firstName, string lastName, int age)
+        public int Age()
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
+            //DateTime 
+            //TimeSpan rozdil = DateTime.Now.Subtract(DateOfBird);
+            //return ()
+            return 0;
         }
+ 
     }
 }

@@ -1,16 +1,89 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace HelloWorld
 {
     class Program
     {
-
         static void Main(string[] args)
         {
+            //System.Data.DataTable tabulka = new System.Data.DataTable();
+            //tabulka.Columns.Add("_id", typeof(int));
+            //tabulka.Columns.Add("_jmeno", typeof(string));
+
+            //tabulka.Rows.Add(1, "Karel");
+
+            //foreach (System.Data.DataRow item in tabulka.Rows)
+            //{
+            //    Console.WriteLine($"Jméno: {item[1]}");
+            //}
+
+
+            int[] numbers = { -2079, -498, 2920, -1856, 332, -2549, -674, -120, -992, 2782, 320, -524, 135, 952, 1868, 2509, -230, -138, -904, -480 };
+
+            /// z "numebers" zjistěte:
+            /// 1. počet prvků v poli
+            Console.WriteLine($"1. počet prvků v poli {numbers.Count()}" );
+            /// 2. největší hodnotu
+            Console.WriteLine($"2. největší hodnotu: {numbers.Max()}");
+            /// 3. nejmenší hodnotu
+            Console.WriteLine($"3. nejmenší hodnotu: {numbers.Min()}");
+            /// 4. průměr
+            Console.WriteLine($"4. průměr: {numbers.Average()}");
+            /// 5. kolik obsahuje pole kladných čísel
+            Console.WriteLine($"6. kolik obsahuje pole záporných čísel: { numbers.Where(r=>r>=0).Count()  }");
+            /// 6. kolik obsahuje pole záporných čísel
+            Console.WriteLine($"6. kolik obsahuje pole záporných čísel { numbers.Where(r => r < 0).Count()  }");
+            /// 7. sumu všech hodnot
+            Console.WriteLine($"7. sumu všech hodnot {numbers.Sum()}");
+            /// 8. sumu kladných hodnot
+            Console.WriteLine($"8. sumu kladných hodnot {numbers.Where(r => r > 0).Sum()}");
+
+
+            ////// projection / restrikce / filtrovani - Where
+
+            /// 9. všechna čísla větší než -500
+            /// 10. všechna kladná sudá čísla
+            /// 11. čísla v rozstahu -400 až 400
+
+
+            //foreach (var item in ordered)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+        static void MainXX(string[] args)
+        {
+            Person osoba = new Person("Karel", "Havran");
+            osoba.HomeAdress.City = "Brno";
+
+            Person p2 = new Person();
+            p2.HomeAdress = osoba.HomeAdress;
+            Console.WriteLine(osoba);
+            Console.WriteLine(p2);
+
+
+
+            /*
             Point Bod0001 = new Point(1, 2);
-            Console.WriteLine($"Obsah = {Bod0001.Obsah()}");
+            Consohomele.WriteLine($"Obsah = {Bod0001.Obsah()}");
             List<Person> people = new List<Person>();
             var p1 = new Person("Adam", "Smith", 1);
             var p2 = new Person("Jane", "Doe", 1);
@@ -24,21 +97,19 @@ namespace HelloWorld
             string fileName = "people.txt";
             foreach (Person item in people)
             {
-                File.AppendAllText(fileName, item.VypisDoSouboru()+Environment.NewLine);
+                File.AppendAllText(fileName, item.VypisDoSouboru() + Environment.NewLine);
             }
 
-            string[] radek = File.ReadAllLines(fileName);
+            List<Person> Nacteno = LoadPeople(fileName);
 
-            foreach (string item in radek)
+            foreach (Person item in Nacteno)
             {
-                int index = item.IndexOf(';');
-                string jmeno = item.Substring(0, index-1);
-                    
+                Console.WriteLine(item);
             }
-            
-            
+            */
 
-            
+
+
 
             //// ulozeni tuplu to Tuple typu
             //var tupleResult = MyTryParse("150.0");
@@ -57,6 +128,26 @@ namespace HelloWorld
 
 
         }
+
+        private static List<Person> LoadPeople(string fileName)
+        {
+            List<Person> Nacteno = new List<Person>();
+            string[] radek = File.ReadAllLines(fileName);
+            foreach (string item in radek)
+            {
+
+                string[] pole = item.Split(';');
+                string jmeno = pole[0];
+                string prijmeni = pole[1];
+                string vekS = pole[2];
+                Nacteno.Add(new Person(pole[0], pole[1] ));
+            
+
+
+            }
+            return Nacteno;
+        }
+
         private static int ZiskejOdUzivateleCislo()
         {
             bool dotazovatSe = true;
