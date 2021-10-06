@@ -38,7 +38,15 @@ namespace HelloWorld
                 Console.WriteLine($"město: {item.Key} - počet lidí: {item.Count()}");
             }
 
-            Client nejstarsi = clients.OrderByDescending(c => c.Age()).First();
+            Client nejstarsi = new Client();
+            //var ff = clients.OrderByDescending(c => c.Age()).Select(c => new { Jmeno = $"{c.FirstName} {c.LastName}", vek = c.Age() });
+
+            var dleMest = clients.GroupBy(x => x.HomeAddress.City);
+            foreach (Client item in dleMest)
+            {
+                Console.WriteLine($"");
+            }
+
 
             Console.WriteLine($"Nejstarší klient: {nejstarsi.FirstName} {nejstarsi.LastName}, věk: {nejstarsi.Age()}");
 
