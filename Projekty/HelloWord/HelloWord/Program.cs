@@ -35,24 +35,31 @@ namespace HelloWorld
             ////vypis vsech
             foreach (var item in result)
             {
-                Console.WriteLine($"město: {item.Key} - počet lidí: {item.Count()}");
+                //Console.WriteLine($"město: {item.Key} - počet lidí: {item.Count()}");
             }
 
-            Client nejstarsi = new Client();
-            //var ff = clients.OrderByDescending(c => c.Age()).Select(c => new { Jmeno = $"{c.FirstName} {c.LastName}", vek = c.Age() });
 
+            Client nejstarsi = clients.OrderByDescending(c => c.Age()).First();
+            //Console.WriteLine($"Nejstarší klient: {nejstarsi.FirstName} {nejstarsi.LastName}, věk: {nejstarsi.Age()}");
+
+            //var nejstarsi_v2 = clients.OrderByDescending(c => c.Age()).Select(c => new {jmeno= c.celeJmeno, vek = c.Age() }).First();
+            //Console.WriteLine($"Nejstarší klient: {nejstarsi_v2.jmeno}, věk: {nejstarsi_v2.vek}");
+            //Client nejmladsi = clients.OrderBy(c => c.Age()).First();
+            //Console.WriteLine($"Nejmladší klient: {nejmladsi.FirstName} {nejmladsi.LastName}, věk: {nejmladsi.Age()}");
+
+         
             var dleMest = clients.GroupBy(x => x.HomeAddress.City);
-            foreach (Client item in dleMest)
+            foreach (var item in dleMest)
             {
-                Console.WriteLine($"");
+                var mesto = item.Key;
+                Client nejbohatsi = item.OrderByDescending(c => c.AccountSum()).First();
+                Console.WriteLine($"Město: {item.Key}, klient: {nejbohatsi.celeJmeno}, na účtu: {nejbohatsi.AccountSum()}");
             }
 
 
-            Console.WriteLine($"Nejstarší klient: {nejstarsi.FirstName} {nejstarsi.LastName}, věk: {nejstarsi.Age()}");
 
-            Client nejmladsi = clients.OrderBy(c => c.Age()).First();
 
-            Console.WriteLine($"Nejmladší klient: {nejmladsi.FirstName} {nejmladsi.LastName}, věk: {nejmladsi.Age()}");
+  
 
 
 

@@ -9,6 +9,7 @@ namespace Dataset.Model
 {
     public class Client
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string celeJmeno { get { return $"{FirstName} {LastName}"; } }
@@ -45,6 +46,7 @@ namespace Dataset.Model
     }
     public class Address
     {
+        public int Id { get; set; }
         public string Street { get; set; }
 
         public string City { get; set; }
@@ -52,6 +54,7 @@ namespace Dataset.Model
 
     public class Transaction
     {
+        public int Id { get; set; }
         public DateTime Date { get; set; }
 
         public TransactionType Type { get; set; }
