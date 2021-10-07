@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,9 @@ namespace Dataset.Model
     public class Client
     {
         public int Id { get; set; }
+        
+        [MaxLength(2000)]
+        [Display(Name = "Křestní jméno")]
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string celeJmeno { get { return $"{FirstName} {LastName}"; } }

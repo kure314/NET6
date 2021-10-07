@@ -2,6 +2,14 @@
 
 @{
     ViewData["Title"] = "Details";
+
+    var transakce = Model.Transactions.OrderByDescending(r=>r.Date );
+
+    string trans = "";
+    foreach (var item in transakce)
+    {
+        trans = $"Datum: { item.Date.ToString()}, { item.Value } {Environment.NewLine}";
+    }
 }
 
 <h1>Details</h1>
@@ -10,27 +18,55 @@
     <h4>Client</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FirstName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.LastName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LastName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DateOfBirth)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
     </dl>
+
+    
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
+</div>
+<div>
+    <h4>Transakce</h4>
+    <table>
+        <tr>
+            <td>Datum transakce</td>
+            <td>Typ</td>
+            <td>Částka</td>
+        </tr>
+        @foreach (var tx in Model.Transactions)
+        {
+    <tr>
+        <td>
+            @tx.Date.ToString("dd.MM.yyyy")
+        </td>
+        <td>
+            @tx.Type
+        </td>
+        <td>
+            @tx.Value
+        </td>
+    </tr>
+
+        }
+    </table>
+
 </div>

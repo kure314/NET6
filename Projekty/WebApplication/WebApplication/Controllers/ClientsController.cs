@@ -33,13 +33,13 @@ namespace WebApplication.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
+            var client = await _context.Clients.Include(trans=>trans.Transactions)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (client == null)
             {
                 return NotFound();
             }
-
+            
             return View(client);
         }
 
