@@ -43,7 +43,8 @@ namespace Dataset.Model
 
         public override string ToString()
         {
-            return $"{FirstName} {LastName} - {HomeAddress.Street}, {HomeAddress.City}";
+            //return $"{FirstName} {LastName} - {HomeAddress.Street}, {HomeAddress.City}";
+            return $"{FirstName} {LastName}";
         }
 
 

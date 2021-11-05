@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="btn_Nacti" Content="Načti klienty" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="181" Height="118" Click="btn_Nacti_Click"/>
+        <TextBlock x:Name="textBox_Hlaska" HorizontalAlignment="Left" Margin="10,147,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="98" Width="171"/>
+
 
     </Grid>
 </Window>
